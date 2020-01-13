@@ -1,0 +1,4 @@
+.DS*
+.ide*
+wp_data
+mysql

@@ -1,0 +1,52 @@
+{
+    "name": "wordpress-composer-docker-build",
+    "description": "Build the ",
+    "keywords": [
+        "wordpress",
+        "multisite",
+        "plugin",
+        "database"
+    ],
+    "license": "GPL-3.0+",
+    "type": "wordpress",
+    "homepage": "http://wp-docker.io",
+    "authors": [
+        {
+            "name": "web dev media UG",
+            "homepage": "http://wb-dev-media.de",
+            "email": "info@web-dev-media.de",
+            "role": "Developer, author"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "config": {
+        "process-timeout":0
+    },
+    "require-dev": {},
+    "require": {
+        "php": ">=7",
+        "wpackagist-plugin/gutenberg":"7.1.0"
+    },
+    "extra": {
+        "wordpress-content-dir": "wp_data/wp-content",
+        "installer-paths": {
+            "wp_data/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "wp_data/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        }
+    },
+    "scripts": {
+        "pre-install-cmd": [
+            "assets/scripts/clear_db.sh",
+            "rm -rf wp_data/wp-config.php",
+            "rm -rf wp_data/wp-content/akismet",
+            "rm -rf wp_data/wp-content/hello.php",
+            "docker-compose stop",
+            "docker-compose up -d"
+        ]
+    }
+}
