@@ -1,4 +1,7 @@
 .DS*
 .ide*
 wp_data
-mysql
+vendor
+assets/mysql
+!assets/mysql/dump
+assets/mysql/dump/.DS*
