@@ -22,6 +22,10 @@
         {
             "type": "composer",
             "url": "https://wpackagist.org"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:web-dev-media/lena-gutenberg-fullsite-theme.git"
         }
     ],
     "config": {
@@ -30,7 +34,8 @@
     "require-dev": {},
     "require": {
         "php": ">=7",
-        "wpackagist-plugin/gutenberg":"7.3.0"
+        "wpackagist-plugin/gutenberg":"7.3.0",
+        "web-dev-media/lena-gutenberg-theme": "dev-master"
     },
     "extra": {
         "wordpress-content-dir": "wp_data/wp-content",

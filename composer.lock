@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "624d8527e61cd2b4538bc16dd2926335",
+    "content-hash": "3e07684a2df8c72315e4c65983eff2a5",
     "packages": [
         {
             "name": "composer/installers",
@@ -129,16 +129,54 @@
             "time": "2019-08-12T15:00:31+00:00"
         },
         {
-            "name": "wpackagist-plugin/gutenberg",
-            "version": "7.1.0",
+            "name": "web-dev-media/lena-gutenberg-theme",
+            "version": "dev-master",
             "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/gutenberg/",
-                "reference": "tags/7.1.0"
+                "type": "git",
+                "url": "https://github.com/web-dev-media/lena-gutenberg-fullsite-theme.git",
+                "reference": "2476362203610a634f19cbf93c98ea8a85b77135"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/gutenberg.7.1.0.zip",
+                "url": "https://api.github.com/repos/web-dev-media/lena-gutenberg-fullsite-theme/zipball/2476362203610a634f19cbf93c98ea8a85b77135",
+                "reference": "2476362203610a634f19cbf93c98ea8a85b77135",
+                "shasum": ""
+            },
+            "type": "wordpress-theme",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "web dev media UG",
+                    "homepage": "http://wb-dev-media.de",
+                    "email": "info@web-dev-media.de",
+                    "role": "Developer, author"
+                }
+            ],
+            "description": "Lena is a modern gutenberg fullsite-editing theme it is using the new WordPress block templating system.",
+            "homepage": "https://github.com/web-dev-media/lena-gutenberg-fullsite-theme",
+            "keywords": [
+                "theme",
+                "wordpress"
+            ],
+            "support": {
+                "source": "https://github.com/web-dev-media/lena-gutenberg-fullsite-theme/tree/master",
+                "issues": "https://github.com/web-dev-media/lena-gutenberg-fullsite-theme/issues"
+            },
+            "time": "2020-02-02T21:41:01+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/gutenberg",
+            "version": "7.3.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/gutenberg/",
+                "reference": "tags/7.3.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/gutenberg.7.3.0.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -152,7 +190,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "web-dev-media/lena-gutenberg-theme": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
