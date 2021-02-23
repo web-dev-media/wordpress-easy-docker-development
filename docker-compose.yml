@@ -2,8 +2,8 @@ version: '3'
 
 services:
   wordpress:
-    container_name: ${WORDPRESS_CONTAINER}
-    image: wordpress:${WORDPRESS_VERSION}
+    container_name: ${WORDPRESS_CONTAINER}_wordpress
+    build: ./.docker/
     restart: always
     environment:
       WORDPRESS_DB_HOST: "${WORDPRESS_CONTAINER}_db"
@@ -13,16 +13,15 @@ services:
       WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX}
       WORDPRESS_DEBUG: 'false'
       WORDPRESS_CONFIG_EXTRA: |
+        define( 'DOCKER_ENV', true );
         define( 'WP_HOME', 'http://${HOSTS}' );
-        define( 'WP_SITEURL', 'http://${HOSTS}' );
-        define( 'WP_CACHE', true);
+        define( 'WP_DEBUG_LOG', dirname( dirname( __FILE__ ) ) . '/debug.log' );
         define( 'RELOCATE', true );
       VIRTUAL_HOST: ${HOSTS}
       VIRTUAL_PORT: ${PORT_80}
     volumes:
-      - ./wp_data:/var/www/html
-      - ./assets/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
-      - ./assets/error-logging.ini:/usr/local/etc/php/conf.d/error-logging.ini
+      - ./html:/var/www/html
+      - ./:/var/www/
 
   db:
     image: mysql:5.7
@@ -43,8 +42,8 @@ services:
     image: mailhog/mailhog
     container_name: "${WORDPRESS_CONTAINER}_mailhog"
     ports:
-      - ${MAILHOG_1025}:1025
-      - ${MAILHOG_8025}:8025
+      - ${SMTP_PORT}:1025
+      - ${MAILHOG_PORT}:8025
 
 networks:
   default:

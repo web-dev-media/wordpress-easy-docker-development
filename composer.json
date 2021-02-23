@@ -1,6 +1,6 @@
 {
-    "name": "wordpress-composer-docker-build",
-    "description": "Build the ",
+    "name": "wdm/wordpress-composer-docker-build",
+    "description": "",
     "keywords": [
         "wordpress",
         "multisite",
@@ -9,13 +9,13 @@
     ],
     "license": "GPL-3.0+",
     "type": "wordpress",
-    "homepage": "http://wp-docker.io",
+    "homepage": "https://github.com/web-dev-media/wordpress-easy-docker-development",
     "authors": [
         {
             "name": "web dev media UG",
-            "homepage": "http://wb-dev-media.de",
-            "email": "info@web-dev-media.de",
-            "role": "Developer, author"
+            "homepage": "https://web-dev-media.de",
+            "email": "docker-wp@web-dev-media.de",
+            "role": "Developer, Author"
         }
     ],
     "repositories": [
@@ -25,31 +25,26 @@
         },
         {
             "type": "vcs",
-            "url": "git@github.com:web-dev-media/lena-gutenberg-fullsite-theme.git"
+            "url": ""
         }
     ],
-    "config": {
-        "process-timeout":0
-    },
-    "require-dev": {},
     "require": {
         "php": ">=7",
-        "wpackagist-plugin/gutenberg":"7.3.0",
-        "web-dev-media/lena-gutenberg-theme": "dev-master"
+        "composer/installers": "~1.0",
+        "interconnectit/search-replace-db":  "4.1.2",
+        "wpackagist-theme/twentytwenty":"1.*",
+        "wpackagist-theme/twentytwentyone":"1.*"
     },
     "extra": {
-        "wordpress-content-dir": "wp_data/wp-content",
         "installer-paths": {
-            "wp_data/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-            "wp_data/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+            "html/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "html/wp-content/themes/{$name}/": ["type:wordpress-theme"]
         }
     },
     "scripts": {
         "pre-install-cmd": [
-            "assets/scripts/clear_db.sh",
             "rm -rf wp_data/wp-config.php",
-            "rm -rf wp_data/wp-content/akismet",
-            "rm -rf wp_data/wp-content/hello.php",
+            "rm -rf wp_data/",
             "docker-compose stop",
             "docker-compose up -d"
         ]
