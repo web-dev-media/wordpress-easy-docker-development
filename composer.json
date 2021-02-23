@@ -25,13 +25,13 @@
         },
         {
             "type": "vcs",
-            "url": ""
+            "url": "https://github.com/web-dev-media/twentynineteen-child.git"
         }
     ],
     "require": {
         "php": ">=7",
         "composer/installers": "~1.0",
-        "interconnectit/search-replace-db":  "4.1.2",
+        "interconnectit/search-replace-db":"4.1.2",
         "wpackagist-theme/twentytwenty":"1.*",
         "wpackagist-theme/twentytwentyone":"1.*"
     },
